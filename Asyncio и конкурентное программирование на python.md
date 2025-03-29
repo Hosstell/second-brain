@@ -45,11 +45,8 @@ async def delay(secs: int) -> int:
 ```
 
 В идеале, функция asyncio.run должна вызываться в программе только один раз и использоваться как основная точка входа. Эту функцию нельзя вызвать, когда в том же потоке запущен другой цикл событий.
-
 ### **asyncio.create_task**
-
 Еще один вариант запуска сопрограммы - это создание задачи (task). Обернуть сопрограмму в задачу и запланировать ее выполнение можно с помощью функции asyncio.create_task. Она возвращает объект Task, который можно ожидать с await, как и сопрограммы.
-
 Функция asyncio.create_task позволяет запускать сопрограммы одновременно, так как создание задачи означает для цикла, что надо запустить эту сопрограмму при первой возможности.
 
 ```python
@@ -81,9 +78,7 @@ delay4
 None
 """
 ```
-
-## Создание задачи
-
+### Создание задачи
 ```python
 import asyncio
 
@@ -93,17 +88,13 @@ async def main():
 
 main()
 ```
-
-## Cтатус задачи
-
+### Cтатус задачи
 ```python
 wait_3_secs = asyncio.create_task(delay(3))
 await asyncio.sleep(1)
 print(wait_3_secs.**done**())  # True or False
 ```
-
-## Снятие задачи
-
+### Снятие задачи
 ```python
 wait_3_secs = asyncio.create_task(delay(3))
 await asyncio.sleep(1)
@@ -117,8 +108,7 @@ print(wait_3_secs.**cancelled**())  # True
 await wait_3_secs  # **asyncio.exceptions.CancelError**
 ```
 
-## Timeout на выполнение задач
-
+### Timeout на выполнение задач
 ```python
 wait_3_secs = asyncio.create_task(delay(3))
 
@@ -130,8 +120,7 @@ except **asyncio.exceptions.TimeoutError**:
 ****print(wait_3_secs.cancelled())  # **True**
 ```
 
-## Защита задачи от снятия по timeout
-
+### Защита задачи от снятия по timeout
 ```python
 wait_3_secs = asyncio.create_task(delay(3))
 
@@ -140,12 +129,11 @@ try:
 except asyncio.exceptions.TimeoutError:
 		pass
 
-****print(wait_3_secs.cancelled()) # **False** 
+print(wait_3_secs.cancelled()) # **False** 
 await wait_3_secs
 ```
 
 ## Работа с сокетами
-
 ```python
 import asyncio
 import socket
@@ -188,14 +176,10 @@ async def main():
 asyncio.run(main())
 ```
 
-## Перехват сигнала `signal.SIGINT`
-
-`signal.SIGINT` - Сигнал, котораый вызывается при нажатие **CTRL + C.**
-
+### Перехват сигнала `signal.SIGINT`
+`signal.SIGINT` - Сигнал, который вызывается при нажатие **CTRL + C.**
 Перехватываем этот сигнал, и пытаемся выключить все запущенные таски
-
-PS. Код работает только на системы UNIX
-
+**PS:** Код работает только на системы UNIX
 ```python
 import asyncio
 import signal
@@ -229,13 +213,9 @@ asyncio.exceptions.CancelledError
 ```
 
 ## AIOHTTP
-
 Для асинхронных запросов не подойдет модуль **requests.** Он не явялется асинхронным.
-
 ### Запрос
-
 Объект **session** может сохранять cookies и все остальное между запросами 
-
 ```python
 import asyncio
 import aiohttp
@@ -254,7 +234,6 @@ asyncio.run(main())
 ```
 
 ## Одновременный запуск нескольких задач
-
 ### Функция asyncio.gather
 
 ```python
@@ -272,9 +251,7 @@ asyncio.run(main())
 ```
 
 В функцию можно передавать не только задачи, но и сопрограммы. Сопрограммы оборачиваются в задачу.
-
 В случае ошибки в одной из задач, **asyncio.gather** вернут эту ошибку.
-
 Если нам нужно вернуть ошибку в списке результатов от другиз задач, используем параметр **return_exception=True**
 
 ```python
@@ -296,9 +273,7 @@ async def main():
 
 asyncio.run(main())
 ```
-
 ### Обработка результатов по мере поступления
-
 Метод **as_completed** принимает список допускающих ожидание объектов и  возвращает итератор по будущим объектам. Эти объекты можно перебирать, применяя к каждому await. Когда выражение await вернет управление, мы получим результат первой завершившейся сопрограммы. Это значит, что мы сможем обрабатывать результаты по мере их доступности, но теперь порядок результатов не детерминирован, поскольку неизвестно, какой объект завершится первым.
 
 ```python
@@ -327,9 +302,7 @@ asyncio.run(main())
 ```
 
 У функции **as_completed** есть параметр **timeout.** Принимает секунды. Если задача не выпониться за это время - **TimeoutError.**
-
 ## Точный контроль с помощью wait
-
 Базовая сигнатура wait  – список допускающих ожидание объектов, за которым следует факультативный тайм-аут и факультативный параметр return_when, который может принимать значения **ALL_COMPLETED**, **FIRST_EXCEPTION** и **FIRST_COMPLETED**, а по умолчанию равен **ALL_COMPLETED**
 
 ```python
@@ -342,8 +315,8 @@ from chapter_04 import fetch_status
 async def main():
 		async with aiohttp.ClientSession() as session:
 		fetchers = [
-				asyncio.create_task(fetch_status(session, 'https://example.com')),
-				asyncio.create_task(fetch_status(session, 'https://example.com'))
+			asyncio.create_task(fetch_status(session,'https://example.com')),
+			asyncio.create_task(fetch_status(session,'https://example.com'))
 		]
 		done, pending = await asyncio.**wait**(fetchers)
 
@@ -364,7 +337,6 @@ asyncio.wait не вернется, пока все не завершится.
 ```
 
 ### Обработка исключений при использовании wait
-
 ```python
 async def main():
 		async with aiohttp.ClientSession() as session:
@@ -391,7 +363,6 @@ async def main():
 ```
 
 ### Обработка всех результатов по мере поступления
-
 ```python
 async def main():
 		async with aiohttp.ClientSession() as session:
@@ -459,7 +430,6 @@ asyncio.run(main())
 - Параметр **max_size** определяет максимальное число подключений. Если подключений недостаточно, то пул попытается создать еще одно при условии, что число подключений не превысит max_size.
 
 ## Транзакция
-
 ```python
 async with **connection.transaction()**:
 		await connection.execute("INSERT INTO brand VALUES(DEFAULT, 'brand_1')")
@@ -467,7 +437,6 @@ async with **connection.transaction()**:
 ```
 
 ## Курсоры
-
 ```python
 query = 'SELECT product_id, product_name FROM product'
 async with **connection.transaction()**:
@@ -475,11 +444,8 @@ async with **connection.transaction()**:
         print(product)
 ```
 
-Для примера выполним запрос, который получает на курсоре все товары, имеющиеся в базе
-данных. И будем выбирать элементы из результирующего набора **по одному** в цикле async for. 
-
+Для примера выполним запрос, который получает на курсоре все товары, имеющиеся в базе данных. И будем выбирать элементы из результирующего набора **по одному** в цикле async for. 
 Здесь распечатываются все имеющиеся товары. Хотя в таблице хранится 1000 товаров, в память загружается лишь небольшая порция. Объем предвыборки по умолчанию был равен 50 записей. 
-
 То есть, если в таблице 1000 записей, то этот код сделает 20 запросов (1000/50 = 20) к бд.
 
 # Счетные задачи
