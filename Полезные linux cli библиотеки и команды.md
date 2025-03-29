@@ -13,4 +13,7 @@ ssh-keygen # если нужно
 ssh-copy-id login@host
 ```
 
-отключение возможности авторизации на сервере по паролю 
+**отключение возможности авторизации на сервере по паролю (оставляем только по ключу ssh)**
+Где меняем: `/etc/ssh/sshd_config`
+Что меняем: `PasswordAuthebtication yes` на `PasswordAuthebtication no`
+Что потом: `sudo service ssh restart`
