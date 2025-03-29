@@ -64,4 +64,20 @@ uv run main.py
 uv tree
 ```
 
-п
+**- определение версии python и его зависимостей в самом файле**
+В данном случае нам не нужно определять среду и версию python
+```python
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#   "natsort",
+#   "tabulate"
+# ]
+# ///
+
+print("Hello world")
+```
+
+```
+uv run main.py
+```
