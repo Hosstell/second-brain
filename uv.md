@@ -78,6 +78,6 @@ uv tree
 print("Hello world")
 ```
 
-```
+```bash
 uv run main.py
 ```
