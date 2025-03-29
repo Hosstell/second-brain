@@ -1,7 +1,17 @@
+##### Короткая версия
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh`  # устновка
+echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc  # автодополнение
+uv python list  # список доступных версия python
+uv python install 3.12.3  # Устновка python
+uv init  # инициализация проекта
+
+```
+
 **- установка**
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh`
-echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc
+echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc # Автодополнение
 ```
 
 **- список доступных версий python**
@@ -50,4 +60,5 @@ uv run main.py
 **- дерево зависимостей**
 ```bash
 uv tree
+
 ```
