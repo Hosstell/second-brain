@@ -40,7 +40,7 @@ uv python install 3.12.3
 uv python pin 3.12.3
 ```
 в проекте появится файл `.python-version`
-```
+```bash
 3.13.2
 ```
 
@@ -62,5 +62,6 @@ uv run main.py
 **- дерево зависимостей**
 ```bash
 uv tree
-
 ```
+
+п
