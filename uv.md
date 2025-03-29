@@ -46,3 +46,7 @@ uv add requests
 uv run main.py
 ```
 
+**- дерево зависимостей**
+```
+uv tree
+```
