@@ -2,11 +2,13 @@
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
 ##### batcat
 ```bash
 sudo apt install -y bat
 echo "\nalias cat='batcat'\n" >> ~/.zshrc
 ```
+
 ##### exa
 репо: https://github.com/ogham/exa
 ```
@@ -15,7 +17,12 @@ echo '\nalias ll="exa -la"\n' >> ~/.zshrc
 echo '\nalias ls="exa"\n' >> ~/.zshrc
 ```
 
+##### Gogh (темы для консоли)
+```bash
+bash -c  "$(wget -qO- https://git.io/vQgMr)" 
 ```
+ -> Everforest Dark Hard 
+
 #### настройка подключения к серверу по ssh без пароля
 ```bash
 ssh-keygen # если нужно 
