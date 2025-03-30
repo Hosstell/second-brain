@@ -7,6 +7,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sudo apt install -y bat
 echo "\nalias cat='batcat'\n" >> ~/.zshrc
 ```
+##### exa
+репо: https://github.com/ogham/exa
+```
+echo '\nexport PATH="/home/andrey/tools/exa/bin:$PATH"\n' >> ~/.zshrc
+echo '\nalias ll="exa -la"\n' >> ~/.zshrc
+echo '\nalias ls="exa"\n' >> ~/.zshrc
+```
+
+```
 #### настройка подключения к серверу по ssh без пароля
 ```bash
 ssh-keygen # если нужно 
