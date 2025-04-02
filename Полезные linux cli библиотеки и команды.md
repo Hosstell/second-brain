@@ -33,3 +33,9 @@ ssh-copy-id login@host
 Где меняем: `/etc/ssh/sshd_config`
 Что меняем: `PasswordAuthebtication yes` на `PasswordAuthebtication no`
 Что потом: `sudo service ssh restart`
+
+
+##### Какой из процессов открыл указанный файл
+```bash
+lsof filename.txt
+```
