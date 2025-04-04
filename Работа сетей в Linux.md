@@ -11,3 +11,8 @@ ip route
 ```
 map: ip -> сетевой интерфейс
 
+**Как в curl указать интерфейс?**
+```
+curl --interface <интерфейс_или_IP> http://example.com
+```
+
