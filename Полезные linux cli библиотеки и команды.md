@@ -39,3 +39,9 @@ ssh-copy-id login@host
 ```bash
 lsof filename.txt
 ```
+
+#### ps - просмотр процессов\
+Просмотреть все процессы с их подпроцессами 
+```bash
+ps -auxwf
+```
