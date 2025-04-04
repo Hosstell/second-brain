@@ -10,3 +10,4 @@ ifconfig
 ip route
 ```
 map: ip -> сетевой интерфейс
+
