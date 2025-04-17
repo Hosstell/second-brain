@@ -3,5 +3,10 @@
 **o** - next new empty line
 
 yy - copy line
+y - copy selected
 P - past afrer cursor
-p
+p - past before cursor
+
+v - copy mode
+
+
