@@ -8,5 +8,6 @@ P - past afrer cursor
 p - past before cursor
 
 v - copy mode
+bvey - copy current word
 
 
