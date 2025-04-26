@@ -42,30 +42,14 @@ qemu-img create -f qcow2 my_virtual_disk.qcow2 20G
 - **VG → LV:** Из пространства, предоставленного VG, можно создавать несколько LV. Это позволяет гибко распределять пространство между различными логическими томами.
 ### Пример:
 ```bash
-
+# Создание PV
 sudo pvcreate /dev/sdX 
 sudo pvcreate /dev/sdY
 
-
+# Создание VG из нескольких PV
 sudo vgcreate my_volume_group /dev/sdX /dev/sdY
 
+# Создание LV из VG
 sudo lvcreate -n my_logical_volume -L 20G my_volume_group
 ```
-
-1. **Создание PV:**
-    `sudo pvcreate /dev/sdX sudo pvcreate /dev/sdY`
-    
-2. **Создание VG из нескольких PV:**
-    
-    Copy
-    
-    `sudo vgcreate my_volume_group /dev/sdX /dev/sdY`
-    
-3. **Создание LV из VG:**
-    
-    Copy
-    
-    `sudo lvcreate -n my_logical_volume -L 20G my_volume_group`
-    
-
 Таким образом, LVM предоставляет гибкую и мощную систему управления дисковым пространством, позволяя эффективно использовать ресурсы и легко изменять конфигурацию хранилищ в зависимости от потребностей.
