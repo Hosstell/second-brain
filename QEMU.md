@@ -83,3 +83,4 @@ qemu-system-x86_64 -hda my_virtual_disk.qcow2 -m 4G -enable-kvm -netdev user,id=
 ```
 
 После чего на ВМ появятся все нужные интерфейсы и роуты
+![[Pasted image 20250427172755.png]]
