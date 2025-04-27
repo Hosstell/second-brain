@@ -73,3 +73,13 @@ qemu-system-x86_64 -hda my_virtual_disk.qcow2 -m 4G -enable-kvm
 ```
 Теперь новые данные будут сохраняться, потому что они будут сохраняться в физической памяти, а не в ram
 
+
+-- **Проблемы с доступом в интернет из ВМ**
+Для того, чтобы все работало, нужно добавить доп параметры: 
+`-netdev user,id=net0 -device e1000,netdev=net0`
+
+```shell
+qemu-system-x86_64 -hda my_virtual_disk.qcow2 -m 4G -enable-kvm -netdev user,id=net0 -device e1000,netdev=net0
+```
+
+После чего на ВМ появятся все нужные интерфейсы и роуты
