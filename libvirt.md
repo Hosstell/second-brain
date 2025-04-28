@@ -49,4 +49,17 @@ virsh list --all
 """
 ```  
 
-**Trouble shooting**
+#### Trouble shooting:
+##### no 'default' network 
+**Ошибка:**
+```bash
+➜ virsh start vm1     
+error: Failed to start domain 'vm1'
+error: Network not found: no network with matching name 'default'
+```
+**Решение:**
+```bash
+virsh net-define --file /usr/share/libvirt/networks/default.xml
+virsh net-start default
+```
+
