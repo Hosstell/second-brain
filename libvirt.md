@@ -4,7 +4,8 @@
 - **`virt-manager`** — графический интерфейс для управления ВМ.
 
 ### Запуск VM
-1. **Создайте XML-конфигурацию для ВМ:** Создайте файл `vm.xml` с конфигурацией вашей ВМ:
+1. **Создайте XML-конфигурацию для ВМ:** 
+   Создайте файл `vm.xml` с конфигурацией вашей ВМ:
 ```xml
 <domain type='kvm'>
   <name>myvm</name>
@@ -28,20 +29,24 @@
   </devices>
 </domain>
 ```
-1. **Определите ВМ в `libvirt`:**
-    
-    Copy
-    
-    `virsh define vm.xml`
-    
-2. **Запустите ВМ:**
-    
-    Copy
-    
-    `virsh start myvm`
-    
-3. **Проверьте состояние ВМ:**
-    
-    Copy
-    
-    `virsh list --all`
+2. **Определите ВМ в `libvirt`:**
+```bash
+virsh define vm.xml
+```
+3. **Запустите ВМ:**
+```bash
+virsh start myvm
+```
+4. **Проверьте состояние ВМ:**
+```bash
+virsh list --all
+
+"""
+ Id   Name   State
+-----------------------
+ -    vm1    shut off
+ -    vm2    shut off
+"""
+```  
+
+**Trouble shooting**
