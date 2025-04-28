@@ -120,3 +120,13 @@ default via 10.0.2.2 dev ens3 proto dhcp src 10.0.2.15 metric 100
 10.0.2.2 dev ens3 proto dhcp scope link src 10.0.2.15 metric 100
 ```
 -- **Отправление запроса из VM**
+```bash
+andrey@server:~$ curl 10.0.2.2:8080 
+<html lang="en">
+	<head> 
+		<meta charset="UTF-8"> 
+			<title>Directory listing for /</title>
+		</meta>
+	</head>
+...
+```
