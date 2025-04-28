@@ -91,4 +91,32 @@ qemu-system-x86_64 -hda my_virtual_disk.qcow2 -m 4G -enable-kvm -netdev user,id=
 
 ### Примеры
 #### Запрос от вм до хоста
-**Настройки сети ви**
+-- **Сервер на хосте**
+```bash
+python3 -m http.server 8080
+```
+-- **Настройки сети VM**
+```bash
+andrey@server:~$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 52:54:00:12:34:56 brd ff:ff:ff:ff:ff:ff
+    altname enp0s3
+    altname enx525400123456
+    inet 10.0.2.15/24 metric 100 brd 10.0.2.255 scope global dynamic ens3
+       valid_lft 86286sec preferred_lft 86286sec
+    inet6 fec0::5054:ff:fe12:3456/64 scope site dynamic mngtmpaddr noprefixroute
+       valid_lft 86286sec preferred_lft 14288sec
+    inet6 fe80::5054:ff:fe12:3456/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+andrey@server:~$ ip route show
+default via 10.0.2.2 dev ens3 proto dhcp src 10.0.2.15 metric 100
+10.0.2.0/24 dev ens3 proto kernel scope link src 10.0.2.15 metric 100
+10.0.2.2 dev ens3 proto dhcp scope link src 10.0.2.15 metric 100
+```
+-- **Отправление запроса из VM**
