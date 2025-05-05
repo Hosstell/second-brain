@@ -13,9 +13,9 @@ echo "\nalias cat='batcat'\n" >> ~/.zshrc
 ##### exa
 репо: https://github.com/ogham/exa
 ```
-echo '\nexport PATH="/home/andrey/tools/exa/bin:$PATH"\n' >> ~/.zshrc
-echo '\nalias ll="exa -la"\n' >> ~/.zshrc
-echo '\nalias ls="exa"\n' >> ~/.zshrc
+echo 'export PATH="/home/andrey/tools/exa/bin:$PATH"' >> ~/.zshrc
+echo 'alias ll="exa -la"' >> ~/.zshrc
+echo 'alias ls="exa"' >> ~/.zshrc
 ```
 
 ##### Gogh (темы для консоли)
@@ -35,7 +35,6 @@ ssh-copy-id login@host
 Что меняем: `PasswordAuthebtication yes` на `PasswordAuthebtication no`
 Что потом: `sudo service ssh restart`
 
-
 ##### Какой из процессов открыл указанный файл
 ```bash
 lsof filename.txt
@@ -47,9 +46,7 @@ lsof filename.txt
 ps -auxwf
 ```
 
-
-
-#### Куда смотрит apt update
+#### Какие регистри apt update использует
 ```bash
 ➜ ll /etc/apt/sources.list.d/            
 .rw-r--r-- 1,8k root 24 ноя  2024 deadsnakes-ubuntu-ppa-noble.sources
