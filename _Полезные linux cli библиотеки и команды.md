@@ -3,27 +3,24 @@
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-
 ##### batcat
 ```bash
 sudo apt install -y bat
-echo "\nalias cat='batcat'\n" >> ~/.zshrc
+echo 'alias cat="batcat"' >> ~/.zshrc
+echo 'alias catd="batcat --theme Coldark-Cold"' >>  ~/.zshrc
 ```
+##### eza
+```bash
+sudo apt install eza -y
 
-##### exa
-репо: https://github.com/ogham/exa
+echo 'alias ls="eza"' >> ~/.zshrc
+echo 'alias ll="eza -la"' >> ~/.zshrc
 ```
-echo '\nexport PATH="/home/andrey/tools/exa/bin:$PATH"\n' >> ~/.zshrc
-echo '\nalias ll="exa -la"\n' >> ~/.zshrc
-echo '\nalias ls="exa"\n' >> ~/.zshrc
-```
-
 ##### Gogh (темы для консоли)
 ```bash
 bash -c  "$(wget -qO- https://git.io/vQgMr)" 
 ```
- -> Everforest Dark Hard 
-
+ -> Everforest Dark Hard (125)
 #### настройка подключения к серверу по ssh без пароля
 ```bash
 ssh-keygen # если нужно 
@@ -46,3 +43,16 @@ lsof filename.txt
 ```bash
 ps -auxwf
 ```
+
+#### wall
+Отправляем сообщения в stdout другим пользователям терминала
+
+##### copy
+```bash
+sudo apt install xclip -y
+echo 'alias copy="xclip -sel c <"' >> ~/.zshrc
+
+copy filename.txt
+```
+
+
