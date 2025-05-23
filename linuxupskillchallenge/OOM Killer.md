@@ -13,15 +13,10 @@ kernel: Out of Memory: Killed process 2592 (oracle).
 -> ~ **echo -15 > /proc/2592/oom_adj**
 
 **Более вероятное завершение:**
-
-`echo 10 > /proc/2592/oom_adj`
+-> ~ **echo 10 > /proc/2592/oom_adj**
 
 **Полностью исключить из завершения:**
+-> ~ **echo -17 > /proc/2592/oom_adj**
 
-bash
-
-КопироватьРедактировать
-
-`echo -17 > /proc/2592/oom_adj`
-
-Значения `oom_adj` — от -16 до +15. `-17` — исключение из OOM Killer.
+Значения `oom_adj` — от -16 до +15. 
+`-17` — исключение из OOM Killer.
