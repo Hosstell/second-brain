@@ -18,6 +18,8 @@ vm.swappiness=10
 ```
 
 Каждому swap-разделу или файлу назначается приоритет.  
-
-Проверьте:
-`cat /proc/swaps`
+➜  ~  **cat /proc/swaps**
+```
+Filename        Type     Size   Used    Priority
+/swap.img       file  8388604      0          -2
+```
