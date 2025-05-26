@@ -25,7 +25,7 @@ john     ssh:notty    192.168.1.51     Thu May 23 22:15 - 22:15  (00:00)
 btmp begins Wed May 22 14:22:44 2024
 ```
 
-### `lastlog` — последний вход всех пользователей:
+### `lastlog` - последний вход всех пользователей:
 ```bash
 $ lastlog
 Username         Port     From             Latest
