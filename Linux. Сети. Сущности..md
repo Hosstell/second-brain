@@ -33,7 +33,7 @@
     • создать: `ip link add gre1 type gre remote 203.0.113.1 local 198.51.100.1`
 - **vxlan**  
     • назначение — L2-оверлей поверх L3 (часто в Kubernetes/облаках)  
-		    • создать: `ip link add vxlan10 type vxlan id 10 dstport 4789 dev eth0`
+	• создать: `ip link add vxlan10 type vxlan id 10 dstport 4789 dev eth0`
 - **vrf**  
     • назначение — изолированная таблица маршрутов (VRF)  
     • создать: `ip link add vrf-blue type vrf table 10`
