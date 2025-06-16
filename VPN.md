@@ -24,7 +24,7 @@ docker run -d \
   alekslitvinenk/openvpn
   
   
-DOCKOVPN_CONFIG_PORT=80
+DOCKOVPN_CONFIG_PORT=81
 DOCKOVPN_TUNNEL_PORT=443
 DOCKOVPN_TUNNEL_PROTOCOL=udp
 docker run -it --rm --cap-add=NET_ADMIN \
