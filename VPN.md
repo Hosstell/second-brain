@@ -22,6 +22,17 @@ docker run -d \
   -e PROTO=tcp \
   -e HOST_ADDR=$(curl -s https://api.ipify.org) \
   alekslitvinenk/openvpn
+  
+  
+DOCKOVPN_CONFIG_PORT=80
+DOCKOVPN_TUNNEL_PORT=443
+DOCKOVPN_TUNNEL_PROTOCOL=tcp
+docker run -it --rm --cap-add=NET_ADMIN \
+-p $DOCKOVPN_TUNNEL_PORT:1194/$DOCKOVPN_TUNNEL_PROTOCOL -p $DOCKOVPN_CONFIG_PORT:8080/tcp \
+-e HOST_CONF_PORT="$DOCKOVPN_CONFIG_PORT" \
+-e HOST_TUN_PORT="$DOCKOVPN_TUNNEL_PORT" \
+-e HOST_TUN_PROTOCOL="$DOCKOVPN_TUNNEL_PROTOCOL" \
+--name dockovpn alekslitvinenk/openvpn
 ```
 
 
