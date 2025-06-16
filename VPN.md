@@ -10,6 +10,16 @@ docker run \
 	-e HOST_ADDR=$(curl -s https://api.ipify.org) \
 	-d \
 	alekslitvinenk/openvpn
+	
+	
+docker run -d \
+  --name myvpn \
+  --restart  \
+  --cap-add=NET_ADMIN \
+  -p 443:443/tcp \
+  -e PORTS="443" \
+  -e PROTO=tcp \
+  alekslitvinenk/openvpn
 ```
 
 
