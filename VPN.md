@@ -32,7 +32,7 @@ docker run -it --rm --cap-add=NET_ADMIN \
 -e HOST_CONF_PORT="$DOCKOVPN_CONFIG_PORT" \
 -e HOST_TUN_PORT="$DOCKOVPN_TUNNEL_PORT" \
 -e HOST_TUN_PROTOCOL="$DOCKOVPN_TUNNEL_PROTOCOL" \
---name dockovpn alekslitvinenk/openvpn
+--name myvpn alekslitvinenk/openvpn
 ```
 
 
