@@ -3,7 +3,6 @@
 set -e
 
 echo "📦 Устанавливаем зависимости..."
-sudo apt update
 sudo apt install -y git make gcc systemd
 
 echo "⬇️ Клонируем и устанавливаем keyd..."
