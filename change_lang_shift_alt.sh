@@ -11,7 +11,7 @@ if [ -d /tmp/keyd ]; then
 fi
 
 git clone https://github.com/rvaiya/keyd.git /tmp/keyd
-cd /tmp/keyd
+cd /tmp/keyd    
 make
 sudo make install
 sudo systemctl enable keyd
@@ -19,21 +19,13 @@ sudo systemctl start keyd
 
 echo "🛠 Создаём/обновляем скрипт переключения раскладки..."
 sudo tee /usr/local/bin/toggle_layout.sh > /dev/null << 'EOF'
-#!/bin/bash
+current=$(ibus engine)
 
-index=$(gsettings get org.gnome.desktop.input-sources current)
-
-if [ "$index" = "uint32 0" ]; then
-    new_index=1
+if [[ "$current" == *us* ]]; then
+    ibus engine xkb:ru::rus
 else
-    new_index=0
+    ibus engine xkb:us::eng
 fi
-
-gdbus call --session \
-  --dest org.gnome.Shell \
-  --object-path /org/gnome/Shell \
-  --method org.gnome.Shell.Eval \
-  "imports.ui.status.keyboard.getInputSourceManager().inputSources[$new_index].activate()"
 EOF
 
 sudo chmod +x /usr/local/bin/toggle_layout.sh
