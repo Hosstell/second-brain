@@ -16,12 +16,24 @@ sudo systemctl start keyd
 echo "🛠 Создаём скрипт переключения раскладки..."
 sudo tee /usr/local/bin/toggle_layout.sh > /dev/null << 'EOF'
 #!/bin/bash
-layout=$(gsettings get org.gnome.desktop.input-sources current)
-if [ "$layout" = "uint32 0" ]; then
-    gsettings set org.gnome.desktop.input-sources current 1
+
+# Получаем текущую активную раскладку
+index=$(gsettings get org.gnome.desktop.input-sources current)
+
+# Инвертируем
+if [ "$index" = "uint32 0" ]; then
+    new_index=1
 else
-    gsettings set org.gnome.desktop.input-sources current 0
+    new_index=0
 fi
+
+# Меняем через D-Bus (этот вызов реально активирует нужную раскладку)
+gdbus call --session \
+  --dest org.gnome.Shell \
+  --object-path /org/gnome/Shell \
+  --method org.gnome.Shell.Eval \
+  "imports.ui.status.keyboard.getInputSourceManager().inputSources[$new_index].activate()"
+
 EOF
 
 sudo chmod +x /usr/local/bin/toggle_layout.sh
