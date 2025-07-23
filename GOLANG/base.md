@@ -44,12 +44,18 @@ go fmt *.go
 ### Общие модули(сторонние)
 Установка
 ```bash
-go install pkg@version
+go install github.com/username/pkg@version
 ```
 Скаченный пакет сохраняется в `$GOPATH/bin`.
 Файлы `go.mod` и `go.sum` **не меняются**.
 ### Импортированные библиотеки
 Установка
 ```
-go get 
+go get github.com/username/pkg@version
 ```
+Скаченный пакет сохраняется в `$GOPATH/pkg/mod`.
+Файлы `go.mod` и `go.sum` **меняются**.
+
+> [!NOTE]
+> **Go не знает, откуда брать “просто `logger@v1.2.3`”**. Ему нужен **уникальный идентификатор модуля — его import path с доменом** (например, `github.com/user/logger`).
+
