@@ -93,5 +93,4 @@ dr-xr-xr-x - andrey 23 июл 14:17 beego@v1.12.3
 .r--r--r-- 7,5k andrey 23 июл 14:17 admin_test.go
 .r--r--r--  13k andrey 23 июл 14:17 adminui.go
 ...
-
 ```
