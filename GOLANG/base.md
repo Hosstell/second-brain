@@ -60,3 +60,38 @@ go get github.com/username/pkg@version
 > 
 > Для внешних модулей в Go стандарт — указывать полный import path (домен + путь) и версию.
 
+Пример использования:
+```bash
+➜ go get github.com/astaxie/beego 
+go: downloading github.com/astaxie/beego v1.12.3
+go: downloading github.com/hashicorp/golang-lru v0.5.4
+...
+➜ awesomeProject git:(master) ✗ ll ~/go 
+drwxrwxr-x - andrey 23 июл 14:17 pkg
+➜ awesomeProject git:(master) ✗ ll ~/go/pkg 
+drwxrwxr-x - andrey 23 июл 14:17 mod
+drwxrwxr-x - andrey 23 июл 14:17 sumdb
+➜ awesomeProject git:(master) ✗ ll ~/go/pkg/mod 
+drwxrwxr-x - andrey 23 июл 14:17 cache
+drwxrwxr-x - andrey 23 июл 14:17 github.com
+drwxrwxr-x - andrey 23 июл 14:17 golang.org
+drwxrwxr-x - andrey 23 июл 14:17 google.golang.org
+drwxrwxr-x - andrey 23 июл 14:17 gopkg.in
+➜ awesomeProject git:(master) ✗ ll ~/go/pkg/mod/github.com 
+drwxrwxr-x - andrey 23 июл 14:17 astaxie
+drwxrwxr-x - andrey 23 июл 14:17 beorn7
+drwxrwxr-x - andrey 23 июл 14:17 cespare
+drwxrwxr-x - andrey 23 июл 14:17 golang
+drwxrwxr-x - andrey 23 июл 14:17 hashicorp
+drwxrwxr-x - andrey 23 июл 14:17 matttproud
+drwxrwxr-x - andrey 23 июл 14:17 prometheus
+drwxrwxr-x - andrey 23 июл 14:17 shiena
+➜ awesomeProject git:(master) ✗ ll ~/go/pkg/mod/github.com/astaxie 
+dr-xr-xr-x - andrey 23 июл 14:17 beego@v1.12.3
+➜ awesomeProject git:(master) ✗ ll ~/go/pkg/mod/github.com/astaxie/beego@v1.12.3 
+.r--r--r--  13k andrey 23 июл 14:17 admin.go
+.r--r--r-- 7,5k andrey 23 июл 14:17 admin_test.go
+.r--r--r--  13k andrey 23 июл 14:17 adminui.go
+...
+
+```
