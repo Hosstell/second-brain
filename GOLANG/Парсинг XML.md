@@ -41,10 +41,10 @@
 		<registered>2016-11-20T04:40:07 -03:00</registered>
 		<favoriteFruit>banana</favoriteFruit>
 	</row>
+</root>
 ```
 
 ```go
-
 package main
 
 import (
@@ -77,17 +77,17 @@ type Dataset struct {
 	} `xml:"row"`
 }
 
-
 func main() {
 	data, err := os.Open("dataset.xml")
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 
 	byteData, _ := ioutil.ReadAll(data)
 	dataset := &Dataset{}
 	xml.Unmarshal(byteData, dataset)
 
-	fmt.Println("Hello 21", dataset)
+	fmt.Println(dataset)
 }
 ```
