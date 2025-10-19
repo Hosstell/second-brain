@@ -161,5 +161,5 @@ docker run --name openvpn --cap-add=NET_ADMIN -p 1194:1194/udp -v /etc/openvpn:/
 
 
 ```bash
-docker run -d --name openvpn --cap-add=NET_ADMIN -v /etc/openvpn:/etc/openvpn -p 1194:1194/udp -p 81:80 alekslitvinenk/openvpn --config /etc/openvpn/server.conf --tls-crypt /etc/openvpn/ta.key
+docker run -d --name openvpn --cap-add=NET_ADMIN -v /etc/openvpn:/etc/openvpn -p 1194:1194/udp -p 81:8080 alekslitvinenk/openvpn --config /etc/openvpn/server.conf --tls-crypt /etc/openvpn/ta.key
 ```
