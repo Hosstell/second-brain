@@ -158,3 +158,8 @@ echo "➡️  Используй файл: $OVPN_FILE для подключен�
 ```bash
 docker run --name openvpn --cap-add=NET_ADMIN -p 1194:1194/udp -v /etc/openvpn:/etc/openvpn -e "EASYRSA_CERT_EXPIRE=3650" -e "EASYRSA_REQ_COUNTRY=RU" -e "EASYRSA_REQ_PROVINCE=Moscow" -e "EASYRSA_REQ_CITY=Moscow" -e "EASYRSA_REQ_ORG=YourOrg" -e "EASYRSA_REQ_EMAIL=admin@example.com" -e "EASYRSA_REQ_OU=MyOrgUnit" -e "EASYRSA_ALGO=ec" -e "EASYRSA_DIGEST=sha512" -e "USE_TLS_CRYPT=yes" -e "TLS_CRYPT_V2=yes" -d alekslitvinenk/openvpn
 ```
+
+
+```bash
+docker run -d --name openvpn --cap-add=NET_ADMIN -v /etc/openvpn:/etc/openvpn -p 1194:1194/udp -p 81:80 alekslitvinenk/openvpn --config /etc/openvpn/server.conf --tls-crypt /etc/openvpn/ta.key
+```
