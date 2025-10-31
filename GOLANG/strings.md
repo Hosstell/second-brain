@@ -22,20 +22,18 @@ func main() {
 ```
 
 #### При передачи строки в функцию, она не копируется
+`s` указывает на ту же область памяти, что и `a`
 ```go
 package main
 
 import "fmt"
 
 func foo(s string) {
-	fmt.Println(s)
+	fmt.Println(s) 
 }
 
 func main() {
-
-a := "Hello"
-
-foo(a)
-
+	a := "Hello"
+	foo(a)
 }
 ```
