@@ -23,6 +23,19 @@ func main() {
 
 #### При передачи строки в функцию, она не копируется
 ```go
+package main
 
-	
+import "fmt"
+
+func foo(s string) {
+	fmt.Println(s)
+}
+
+func main() {
+
+a := "Hello"
+
+foo(a)
+
+}
 ```
