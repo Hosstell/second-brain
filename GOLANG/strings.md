@@ -13,7 +13,10 @@ func main() {
 	a := "Hello"
 	b := "Привет"
 	
-	fmt.Println(len(a), len(b))
-	fmt.Println([]byte(a), []byte(b))
+	fmt.Println(len(a), len(b)) 
+	// 5 12
+	
+	fmt.Println([]byte(a), []byte(b)) 
+	// [72 101 108 108 111] [208 159 209 128 208 184 208 178 208 181 209 130]
 }
 ```
