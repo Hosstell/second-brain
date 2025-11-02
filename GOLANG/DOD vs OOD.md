@@ -2,6 +2,8 @@
 **OOD** - **Object** Oriented Design
 
 ### OOD
+
+Храним массив объектов
 ```go
 
 type Data struct {
@@ -11,7 +13,14 @@ type Data struct {
 	...
 }
 
-
-
+data := []Data{}
 ```
 
+### DOD
+
+```go
+
+type Data struct {
+}
+
+```
