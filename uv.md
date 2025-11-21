@@ -52,8 +52,7 @@ uv init
 **- добавление пакета**
 ```bash
 uv add requests
-
-OR 
+# OR 
 uv add -r requirements.txt
 ```
 
