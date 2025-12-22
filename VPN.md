@@ -12,12 +12,14 @@ docker run \
 ```
 #### С TLS
 ```bash
+YOUR_IP_OR_DOMAIN=...
+
 # том для конфигов/PKI
 docker volume create ovpn-data
 
 # сгенерировать базовый конфиг (замени YOUR_IP/DOMAIN и порт при желании)
 docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
-  ovpn_genconfig -u udp://YOUR_IP_OR_DOMAIN:1194
+  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:1194
 
 # инициализировать PKI (задаст пароль для CA)
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn ovpn_initpki
