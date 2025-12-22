@@ -10,7 +10,6 @@ docker run \
 	-d \
 	alekslitvinenk/openvpn
 ```
-
 #### С TLS
 ```bash
 # том для конфигов/PKI
