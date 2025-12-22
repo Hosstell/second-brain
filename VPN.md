@@ -12,7 +12,7 @@ docker run \
 ```
 #### С TLS
 ```bash
-YOUR_IP_OR_DOMAIN=...
+export YOUR_IP_OR_DOMAIN=...
 
 # том для конфигов/PKI
 docker volume create ovpn-data
