@@ -12,14 +12,16 @@ docker run \
 ```
 #### С TLS
 ```bash
-export YOUR_IP_OR_DOMAIN=...
+export YOUR_IP_OR_DOMAIN=80.74.30.213
+export CLIENT=client-tls
+export VPN_PORT=7145
 
 # том для конфигов/PKI
 docker volume create ovpn-data
 
 # сгенерировать базовый конфиг (замени YOUR_IP/DOMAIN и порт при желании)
 docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
-  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:1194
+  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:$VPN_PORT
 
 # инициализировать PKI (задаст пароль для CA)
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn ovpn_initpki
@@ -36,13 +38,13 @@ docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
 docker run -d --name openvpn-tls \
   --restart unless-stopped \
   --cap-add=NET_ADMIN --device /dev/net/tun \
-  -p 1194:1194/udp \
+  -p $VPN_PORT:$VPN_PORT/udp \
   -v ovpn-data:/etc/openvpn \
   kylemanna/openvpn
 
 
 # создаём сертификат клиента (замени на нужное имя)
-export CLIENT=client-tls
+
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
   easyrsa build-client-full $CLIENT
 
