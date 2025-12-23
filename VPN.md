@@ -12,6 +12,10 @@ docker run \
 ```
 #### С TLS
 ```bash
+docker stop openvpn-tls
+docker rm openvpn-tls
+docker volume rm ovpn-data
+
 export YOUR_IP_OR_DOMAIN=80.74.30.213
 export CLIENT=client-tls
 export VPN_PORT=7145
@@ -21,8 +25,7 @@ docker volume create ovpn-data
 
 # сгенерировать базовый конфиг (замени YOUR_IP/DOMAIN и порт при желании)
 docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
-  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:1194 -p "port $VPN_PORT" -p "proto udp" -p "dev tun"
-
+  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:$VPN_PORT -p "port $VPN_PORT" -p "proto udp" -p "dev tun"
 
 # инициализировать PKI (задаст пароль для CA)
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn ovpn_initpki
@@ -39,7 +42,7 @@ docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
 docker run -d --name openvpn-tls \
   --restart unless-stopped \
   --cap-add=NET_ADMIN --device /dev/net/tun \
-  -p $VPN_PORT:1194/udp \
+  -p $VPN_PORT:$VPN_PORT/udp \
   -v ovpn-data:/etc/openvpn \
   kylemanna/openvpn
 
