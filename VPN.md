@@ -59,3 +59,4 @@ sed -i 's/<tls-auth>/<tls-crypt>/' ${CLIENT}.ovpn
 sed -i 's#</tls-auth>#</tls-crypt>#' ${CLIENT}.ovpn
 sed -i '/^key-direction/d' ${CLIENT}.ovpn
 ```
+
