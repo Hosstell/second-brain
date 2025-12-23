@@ -21,7 +21,7 @@ docker volume create ovpn-data
 
 # сгенерировать базовый конфиг (замени YOUR_IP/DOMAIN и порт при желании)
 docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
-  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:$VPN_PORT
+  ovpn_genconfig -u udp://$YOUR_IP_OR_DOMAIN:1194
 
 # инициализировать PKI (задаст пароль для CA)
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn ovpn_initpki
@@ -38,13 +38,11 @@ docker run --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
 docker run -d --name openvpn-tls \
   --restart unless-stopped \
   --cap-add=NET_ADMIN --device /dev/net/tun \
-  -p $VPN_PORT:$VPN_PORT/udp \
+  -p $VPN_PORT:1194/udp \
   -v ovpn-data:/etc/openvpn \
   kylemanna/openvpn
 
-
 # создаём сертификат клиента (замени на нужное имя)
-
 docker run -it --rm -v ovpn-data:/etc/openvpn kylemanna/openvpn \
   easyrsa build-client-full $CLIENT
 
