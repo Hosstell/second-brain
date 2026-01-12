@@ -16,7 +16,7 @@ docker stop openvpn-tls
 docker rm openvpn-tls
 docker volume rm ovpn-data
 
-export YOUR_IP_OR_DOMAIN=80.74.30.213
+export YOUR_IP_OR_DOMAIN=144.31.199.155
 export CLIENT=client-tls
 export VPN_PORT=7145
 
