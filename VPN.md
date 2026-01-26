@@ -74,8 +74,10 @@ Client: cli **v2ray**
 
 #### run **v2ray**
 ```bash
-snap install v2ray-core
+sudo bash -c "$(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)"
 
+systemctl enable v2ray
+systemctl start v2ray
 systemctl status v2ray
 ```
 
