@@ -13,7 +13,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 ## Client side
 Client: cli **v2ray**
 
-**/etc/v2ray/config.json**
+**/usr/local/etc/v2ray/config.json**
 ```json
 {
   "inbounds": [
