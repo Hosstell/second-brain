@@ -72,11 +72,21 @@ Client: cli **v2ray**
 }
 ```
 
-run **v2ray**
+#### run **v2ray**
 ```bash
 snap install v2ray-core
 
 systemctl status v2ray
 ```
 
-Созл
+#### Настраиваем proxy
+Для GNOME
+
+1. Настройки VPN и Proxy
+2. Прокси сервер
+3. Конфигурация: Ручная
+4. Хост SOCKS. 
+	1. URL - 127.0.0.1
+	2. PORT - 10808
+5. Игнорируемые узлы. Удаляем значение
+6. У всех остальных значениях URL - Удалям
