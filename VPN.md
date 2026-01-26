@@ -9,6 +9,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 **Connection settings:**
 - Протокол: vless
 - Безопасность: TLS
-- Нажать на 
+- Нажать на "Установить сертификат панели"
 ### Client side
-Client: **v2rayA**
+Client: cli **v2ray**
