@@ -1,4 +1,4 @@
-### Server side
+## Server side
 REPO: https://github.com/MHSanaei/3x-ui
 
 **Fast install:**
@@ -10,11 +10,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 - Протокол: vless
 - Безопасность: TLS
 - Нажать на "Установить сертификат панели"
-### Client side
+## Client side
 Client: cli **v2ray**
 
 **/etc/v2ray/config.json**
-```
+```json
 {
   "inbounds": [
     {
@@ -37,11 +37,11 @@ Client: cli **v2ray**
       "settings": {
         "vnext": [
           {
-            "address": "144.31.199.155",
-            "port": 46551,
+            "address": "SERVER_API",   <-- 
+            "port": PORT,  <--
             "users": [
               {
-                "id": "71b00c42-4c21-4650-a367-3416861fe86c",
+                "id": "CLIENT_UUID",  <-- 
                 "encryption": "none",
                 "level": 0,
                 "flow": ""
@@ -71,3 +71,12 @@ Client: cli **v2ray**
   }
 }
 ```
+
+run **v2ray**
+```bash
+snap install v2ray-core
+
+systemctl status v2ray
+```
+
+Созл
