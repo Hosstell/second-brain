@@ -90,3 +90,7 @@ systemctl status v2ray
 	2. PORT - 10808
 5. Игнорируемые узлы. Удаляем значение
 6. У всех остальных значениях URL - Удаляем.
+
+
+#### Расширение для браузера
+https://addons.mozilla.org/ru/firefox/addon/foxyproxy-standard/
