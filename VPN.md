@@ -29,6 +29,20 @@ Client: cli **v2ray**
         "enabled": true,
         "destOverride": ["http", "tls"]
       }
+    },
+    {
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false,
+        "userLevel": 0
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "tag": "http-inbound"
     }
   ],
   "outbounds": [
@@ -90,9 +104,19 @@ systemctl status v2ray
 4. Хост SOCKS. 
 	1. URL - 127.0.0.1
 	2. PORT - 10808
-5. Игнорируемые узлы. Удаляем значение
-6. У всех остальных значениях URL - Удаляем.
+5. Так же с HTTP, только порт 10809
+6. Игнорируемые узлы. Удаляем значение
+7. У всех остальных значениях URL - Удаляем.
 
+#### vscode. добавляем прокси
+
+**settings.json**
+```bash
+"http.proxy": "http://127.0.0.1:10809",
+"http.proxySupport": "override",
+"http.proxyStrictSSL": false,
+```
 
 #### Расширение для браузера
+Работает медленно
 https://addons.mozilla.org/ru/firefox/addon/foxyproxy-standard/
